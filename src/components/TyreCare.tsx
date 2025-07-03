@@ -17,7 +17,7 @@ const TyreCare = () => {
         'Check pressure when tyres are cold',
         'Use recommended PSI levels',
         'Don\'t forget the spare tyre',
-        'Monthly inspections recommended'
+        'Monthly inspections recommended (twice)'
       ]
     },
     {
