@@ -19,7 +19,7 @@ const Features = () => {
       icon: Award,
       title: 'Quality Service',
       description: 'MRF-authorized quality standards with professional equipment and certified technicians.',
-      highlights: ['MRF authorization', 'Professional equipment', 'Certified technicians', 'Quality assurance']
+      highlights: ['MRF authorization', 'Professional equipment', '15+ Certified technicians', 'Quality assurance']
     },
     {
       icon: Home,
