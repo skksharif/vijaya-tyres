@@ -43,7 +43,7 @@ const Hero = () => {
         ref={heroRef}
         className="absolute inset-0 bg-gradient-to-br from-vijaya-black via-gray-900 to-vijaya-red"
         style={{
-          backgroundImage: `url('/bg.png')`,
+          backgroundImage: `url('/bg.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed'
