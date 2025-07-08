@@ -1,50 +1,58 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react';
+import React, { useEffect, useRef, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MapPin, Phone, Mail, Clock, Send } from "lucide-react";
 
 const Contact = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const titleRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  
+
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    serviceType: '',
-    message: ''
+    name: "",
+    phone: "",
+    email: "",
+    serviceType: "",
+    message: "",
   });
 
   const branches = [
     {
-      name: 'Vijaya Tyres',
-      address: 'Plot No. 7-249/1, Undi Road, Near Bye Pass Road, NH: 214, Bhimavaram – 534202',
-      phones: ['90321 76617', '98498 36894'],
-      email: null
+      name: "Vijaya Tyres MRF T&S",
+      address:
+        "Plot No. 7-249/1, Undi Road, Near Bye Pass Road, NH: 214, Bhimavaram – 534202",
+      phones: ["+91 90321 76617", "98498 36894"],
+      email: null,
     },
     {
-      name: 'Sree Vijaya Lakshmi Tyres',
-      address: 'Beside Kia Motors, Bhimavaram – 534202',
-      phones: ['91119 18889'],
-      email: 'svltmrfmz@gmail.com'
-    }
+      name: "Sree Vijaya Lakshmi Tyres MRF MUSCLE ZONE",
+      address: "Beside Kia Motors, Bhimavaram – 534202",
+      phones: ["+91 91119 18889"],
+      email: "svltmrfmz@gmail.com",
+    },
+    {
+      name: "Vijaya Krishna Tyres MRF Exclusive",
+      address: "Shop No 9/10/5/208/9/5/208/10, Pippara Road, Ganapavaram, West Godavari - 534198",
+      phones: ["+91 98889 51116"],
+      email: null,
+    },
   ];
 
   const serviceTypes = [
-    'Wheel Alignment',
-    'Wheel Balancing', 
-    'Tyre Fitting',
-    'Tyre Sales',
-    'Nitrogen Air',
-    'Puncture Repair',
-    'Suspension Repair',
-    'General Inquiry'
+    "Wheel Alignment",
+    "Wheel Balancing",
+    "Tyre Fitting",
+    "Tyre Sales",
+    "Nitrogen Air",
+    "Puncture Repair",
+    "Suspension Repair",
+    "General Inquiry",
   ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo(titleRef.current,
+      gsap.fromTo(
+        titleRef.current,
         { y: 50, opacity: 0 },
         {
           y: 0,
@@ -54,12 +62,13 @@ const Contact = () => {
             trigger: titleRef.current,
             start: "top 80%",
             end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
+            toggleActions: "play none none reverse",
+          },
         }
       );
 
-      gsap.fromTo(contentRef.current,
+      gsap.fromTo(
+        contentRef.current,
         { y: 80, opacity: 0 },
         {
           y: 0,
@@ -70,8 +79,8 @@ const Contact = () => {
             trigger: contentRef.current,
             start: "top 80%",
             end: "bottom 20%",
-            toggleActions: "play none none reverse"
-          }
+            toggleActions: "play none none reverse",
+          },
         }
       );
     }, sectionRef);
@@ -79,30 +88,38 @@ const Contact = () => {
     return () => ctx.revert();
   }, []);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry! We will contact you soon.');
+    console.log("Form submitted:", formData);
+    alert("Thank you for your inquiry! We will contact you soon.");
     setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      serviceType: '',
-      message: ''
+      name: "",
+      phone: "",
+      email: "",
+      serviceType: "",
+      message: "",
     });
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section
+      id="contact"
+      ref={sectionRef}
+      className="py-20 bg-gray-50 dark:bg-gray-800"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={titleRef} className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -110,33 +127,46 @@ const Contact = () => {
           </h2>
           <div className="w-24 h-1 bg-vijaya-red mx-auto mb-6"></div>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Visit our locations or contact us for professional tyre services and expert automotive care
+            Visit our locations or contact us for professional tyre services and
+            expert automotive care
           </p>
         </div>
 
-        <div ref={contentRef} className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div
+          ref={contentRef}
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12"
+        >
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Our Branches</h3>
-              
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+                Our Branches
+              </h3>
+
               {branches.map((branch, index) => (
-                <div key={branch.name} className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 mb-6 hover:shadow-xl transition-shadow">
-                  <h4 className="text-xl font-bold text-vijaya-red mb-4">{branch.name}</h4>
-                  
+                <div
+                  key={branch.name}
+                  className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 mb-6 hover:shadow-xl transition-shadow"
+                >
+                  <h4 className="text-xl font-bold text-vijaya-red mb-4">
+                    {branch.name}
+                  </h4>
+
                   <div className="space-y-3">
                     <div className="flex items-start space-x-3">
                       <MapPin className="w-5 h-5 text-vijaya-red mt-1 flex-shrink-0" />
-                      <p className="text-gray-700 dark:text-gray-300">{branch.address}</p>
+                      <p className="text-gray-700 dark:text-gray-300">
+                        {branch.address}
+                      </p>
                     </div>
-                    
+
                     <div className="flex items-center space-x-3">
                       <Phone className="w-5 h-5 text-vijaya-red flex-shrink-0" />
                       <div className="flex flex-wrap gap-2">
                         {branch.phones.map((phone, idx) => (
                           <a
                             key={idx}
-                            href={`tel:${phone.replace(/\s/g, '')}`}
+                            href={`tel:${phone.replace(/\s/g, "")}`}
                             className="text-vijaya-red hover:text-red-700 font-semibold"
                           >
                             {phone}
@@ -144,7 +174,7 @@ const Contact = () => {
                         ))}
                       </div>
                     </div>
-                    
+
                     {branch.email && (
                       <div className="flex items-center space-x-3">
                         <Mail className="w-5 h-5 text-vijaya-red flex-shrink-0" />
@@ -159,25 +189,28 @@ const Contact = () => {
                   </div>
                 </div>
               ))}
-              
+
               <div className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6">
                 <div className="flex items-center space-x-3 mb-4">
                   <Clock className="w-5 h-5 text-vijaya-red" />
-                  <h4 className="text-lg font-bold text-gray-900 dark:text-white">Business Hours</h4>
+                  <h4 className="text-lg font-bold text-gray-900 dark:text-white">
+                    Business Hours
+                  </h4>
                 </div>
                 <div className="space-y-2 text-gray-700 dark:text-gray-300">
                   <div className="flex justify-between">
                     <span>Monday - Saturday</span>
                     <span className="font-semibold">9:00 AM - 8:00 PM</span>
                   </div>
-            
                 </div>
               </div>
             </div>
 
             {/* Google Map */}
             <div className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6">
-              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Find Us on Map</h4>
+              <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
+                Find Us on Map
+              </h4>
               <div className="aspect-video bg-gray-200 dark:bg-gray-600 rounded-lg flex items-center justify-center">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.8947!2d81.5284!3d16.4167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDI1JzAwLjAiTiA4McKwMzEnNDIuMCJF!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
@@ -195,13 +228,18 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send Us a Message</h3>
-            
+          <div className=" dark:bg-gray-700 rounded-xl  p-8">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              Send Us a Message
+            </h3>
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  >
                     Your Name *
                   </label>
                   <input
@@ -215,9 +253,12 @@ const Contact = () => {
                     placeholder="Enter your name"
                   />
                 </div>
-                
+
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                  >
                     Phone Number *
                   </label>
                   <input
@@ -234,7 +275,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Email Address
                 </label>
                 <input
@@ -249,7 +293,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="serviceType" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="serviceType"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Service Type *
                 </label>
                 <select
@@ -270,7 +317,10 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Message
                 </label>
                 <textarea
